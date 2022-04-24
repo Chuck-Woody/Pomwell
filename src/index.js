@@ -1,4 +1,6 @@
 import * as THREE from "three"
+import "./reset.scss"
+import "./index.scss"
 
 // Create an empty scene
 let scene = new THREE.Scene();
@@ -8,7 +10,7 @@ let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeig
 camera.position.z = 4;
 
 // Create a renderer with Antialiasing
-let renderer = new THREE.WebGLRenderer({antialias:true});
+// let renderer = new THREE.WebGLRenderer({antialias:true});
 
 // Configure renderer clear color
 renderer.setClearColor("#000000");
@@ -16,7 +18,8 @@ renderer.setClearColor("#000000");
 // Configure renderer size
 renderer.setSize( window.innerWidth, window.innerHeight );
 
-// Append Renderer to DOM
+// Append Renderer to DOM This is where the canvas is written to so i need to add this as a child of the
+// thing that i want it to be on 
 document.body.appendChild( renderer.domElement );
 
 // Create a Cube Mesh with basic material
