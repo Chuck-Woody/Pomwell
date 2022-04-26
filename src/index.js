@@ -2,8 +2,28 @@
 
 import Timer from "./timer.js"
 
+let workTimer = new Timer(25,'timer-value');
+// function setTimer() {
 
-let timer = new Timer(.1,'timer-value');
+  const val = document.querySelector("input[id='timer-length']")
+  val.onblur = setWorkTimer;
+// }
+
+function setWorkTimer() {
+  console.log("setWorkTimer() fired")
+  let newLength = Number(val.value);
+  if (workTimer.length > newLength) {
+    
+    workTimer.seconds = workTimer.seconds - (workTimer.length - newLength) * 60
+  } else {
+    workTimer.seconds = workTimer.seconds + ( newLength - workTimer.length) * 60 
+  }
+  workTimer.length = newLength;
+  if (!workTimer.start) {
+
+    workTimer.printTime();
+  }
+}
 
 let hello = document.querySelector(".settings")
 let settingsPage = document.querySelector('.modal')
@@ -12,7 +32,8 @@ let pause = document.querySelector(".timer.pause")
 let reset = document.querySelector(".timer.reset")
 let closeModal = document.querySelector(".modal")
 let close = document.querySelector(".close")
-closeModal.addEventListener("click",function(){
+
+close.addEventListener("click",function(){
   closeModal.style.display = "none"
 })
 
@@ -29,16 +50,16 @@ hello.addEventListener("click",function(){
 
 start.addEventListener("click", function() {
 
-  timer.startTimer()
+  workTimer.startTimer()
 })
 
 pause.addEventListener("click",function(){
-  timer.pause()
+  workTimer.pause()
 })
 
 reset.addEventListener("click",function(){
 
-  timer.resetTimer()
+  workTimer.resetTimer()
 
 })
 // document.addEventListener("")

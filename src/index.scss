@@ -1,55 +1,66 @@
-div.body {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 40px 3px 20vh 20vh 20vh;
+// #8399A4;
+// #C4CCCE
+// #AFA8A1
+// #8E8178
+// #684C45
+
+//General
+
+.btn {
+  font-family: Changa;
+  background-color: white;
+  border: solid #AFA8A1;
+  color: #8399A4;
+  border-radius: 10px;
 }
-nav {
+.title {
+  color: white;
   
-  
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-row-start: 1;
-  
-}
-  .nav-title {
-    grid-column-start: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .nav-btn .settings{
-    grid-column-start: 3;
-  }
-  .nav-btn .themes{
-    grid-column-start: 4;
-  }
-  .underline-container {
-    display: flex;
-    justify-content: center;
-   
-  }
-    .underline {
-      margin-top: 2px;
-      width: 75%;
-      background: rgb(224, 13, 13);
-    }
-
-.timer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.task-card-container {
-   width: 75%;
-  background: rgb(224, 13, 13);
-}
-
-
-.timer-value:hover {
+  font-family: 'Bungee Shade', cursive;
   font-size: xx-large;
 }
+//Body
+
+body {
+  background: #8399a4;
+}
+
+//Nav Positioning
+
+.nav-bar-container {
+  position: relative;
+  display: grid;
+  grid-template-areas: 
+  " . logo logo . button1 . "
+  " . logo logo . button2 . ";
+  padding: 0px;
+}
+
+.nav-settings {
+  grid-area: button1;
+}
+
+.nav-themes {
+  grid-area: button2;
+}
+
+.nav-title {
+  grid-area: logo;
+  justify-self: center;
+  align-self: center;
+}
+//underline
+.nav-underline {
+  height: 0.025vh;
+  background: white;
+  position: absolute;
+  top: 100%;
+  width: 70%;
+  right: 13%;
+  margin: auto;
+}
+
+// Settings Modal
 
 .modal {
   display: none;

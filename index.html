@@ -5,23 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PomWell</title>
     <link rel="stylesheet" href="./dist/main.css">
-    <script src="./dist/main.js"></script>
+    <!-- <script src="./dist/main.js"></script> -->
+    <script src="./src/index.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/eef97a435a.js" crossorigin="anonymous"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Changa:wght@600&display=swap" rel="stylesheet">
   </head>
-
-
   <body>
-    <nav>
 
-      <div class="nav-center">
-        <div class = "nav-title">
-          PomWell
+  <div class="modal">
 
-        </div>
-      </div>
-      
-    </nav>
-    
+    <div class="timer-length"> Timer Length
+      <input type="number" id="timer-length">
+    </div>
+    <div class="break-length">Break Length
+      <input type="number" id="break-length">
+    <div class="close">&times;</div>
+  </div>
+
+  </div>
+
+  <nav class="nav-bar-container">
+    <div class="title nav-title">Pomwell</div>
+    <button id="settings" class="btn nav-settings settings">
+      <i class="fa-solid fa-gear"></i>
+    </button>
+    <button class="btn nav-themes themes">Themes</button>
+    <div class="nav-underline"></div>
+  </nav>
+
+  <div class="timer-container">
+    <div class="timer-card">
+      <div class="timer-value">25:00</div>
+      <button class="btn timer start">Start</button>
+      <button class="btn timer pause">Pause</button>
+      <button class="btn timer reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="task-container">
+    <div class="task-value"></div>
+  </div>
   </body>
 </html>
 
