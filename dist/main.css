@@ -3,7 +3,7 @@
   \*************************************************************************************************************************************/
 :root {
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --light-shadow: 80px 10px 60px rgba(0, 0, 0, 0.1);
   --body-width: 620px;
 }
 
@@ -13,6 +13,23 @@
   border: solid #AFA8A1;
   color: #8399A4;
   border-radius: 10px;
+}
+
+.tab-container {
+  background-color: white;
+  border-bottom-left-radius: solid #AFA8A1;
+  display: flex;
+  justify-content: space-around;
+  grid-area: tab;
+}
+
+.tab {
+  font-family: Changa;
+  color: #8399A4;
+  border-radius: 1px;
+  padding: 2px;
+  justify-self: center;
+  align-self: center;
 }
 
 .title {
@@ -66,13 +83,9 @@ body {
 .timer-card {
   background: hsl(200deg, 15%, 70%);
   box-shadow: var(--dark-shadow);
+  border-radius: 10px;
   display: grid;
-  grid-template-areas: " . tab1 tab2 tab3 . " "timer timer timer timer timer" "timer timer timer timer timer" " . start pause reset . ";
-}
-
-.tab {
-  justify-self: center;
-  align-self: center;
+  grid-template-areas: " . tab tab tab . " "timer timer timer timer timer" "timer timer timer timer timer" " . start pause reset . ";
 }
 
 .timer-value {
@@ -81,18 +94,6 @@ body {
   font-family: "Bungee Shade", cursive;
   font-size: 90px;
   color: white;
-}
-
-.tab.sprint {
-  grid-area: tab1;
-}
-
-.tab.cooldown {
-  grid-area: tab2;
-}
-
-.tab.rest {
-  grid-area: tab3;
 }
 
 .timer-value {
@@ -114,12 +115,16 @@ body {
 .modal {
   display: none;
   position: fixed;
+  right: 3.99%;
   z-index: 1;
-  max-width: var(--body-width);
+  width: 90%;
   height: 100%;
-  overflow: none;
+  overflow: hidden;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .close {

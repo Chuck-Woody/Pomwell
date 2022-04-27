@@ -10,7 +10,7 @@ class Timer {
         this.secondsShow = this.seconds % 60
         this.start = false;
         this.htmlElement = htmlElement; //id of the where you want the timer to print
-        this.printTime()
+        // this.printTime()
       
     }
     
@@ -64,8 +64,9 @@ class Timer {
     }
 
     resetTimer(){
-      this.seconds = (this.length) * 60 + 1;
-      
+      this.pause();
+      this.seconds = (this.length) * 60 ;
+      // this.printTime();
     }
 }
 

@@ -2,30 +2,95 @@
 
 import Timer from "./timer.js"
 
-let workTimer = new Timer(25,'timer-value');
-// function setTimer() {
 
-  const val = document.querySelector("input[id='timer-length']")
-  val.onblur = setWorkTimer;
-// }
+//Set the display timer to the 25 minute sprint timer
 
-function setWorkTimer() {
-  console.log("setWorkTimer() fired")
+let sprintTimer = new Timer(26,'timer-value');
+sprintTimer.printTime();
+
+//create the cooldown timer and the rest timer
+
+
+let cooldownTimer = new Timer(5,'timer-value');
+let restTimer = new Timer(15,'timer-value')
+
+//create an object with all three timer instances
+let masterTimer = {sprint: sprintTimer,cooldown: cooldownTimer,rest: restTimer}
+
+//create the truth values for each timer
+let sprintFocus = true;
+let cooldownFocus = false;
+let restFocus = false
+let truths = {sprint:sprintFocus,cooldown:cooldownFocus,rest:restFocus}
+// Grab all the tabs
+
+let tabs = document.querySelectorAll(".tab")
+
+
+// loop through the nodelist of the tabs and listen for the
+// click event for each ot the tabs. Then set their 
+
+tabs.forEach(function(tab){
+  tab.addEventListener("click",function(e) {
+
+    if (e.currentTarget.classList.contains("sprint")) {
+      console.log(`the [ ${e.currentTarget.classList} ] was clicked`)
+      truths['sprint'] = true;
+      truths['cooldown'] = false;
+      truths['rest'] = false
+      console.log(truths)
+    }
+    if (e.currentTarget.classList.contains("cooldown")) {
+      console.log(`the [ ${e.currentTarget.classList} ] was clicked`)
+      truths['sprint'] = false;
+      truths['cooldown'] = true;
+      truths['rest'] = false;
+      console.log(truths)
+    }
+    if (e.currentTarget.classList.contains("rest")) {
+      console.log(`the [ ${e.currentTarget.classList} ] was clicked`)
+      truths['sprint'] = false;
+      truths['cooldown'] = false;
+      truths['rest'] = true;
+      console.log(truths)
+    }
+    for (const timer in masterTimer) {
+      console.log(masterTimer[timer])
+      if (truths[timer]) {
+        masterTimer[timer].printTime()
+      } else {
+        masterTimer[timer].pause()
+        masterTimer[timer].resetTimer()
+      }
+    }
+  })
+})
+
+const timerLengths = document.querySelectorAll("input")
+timerLengths.forEach(function(timerLength) {
+  timerLength.addEventListener("blur",function(timerLength){
+    setSprintTimer(this.id,this)
+      
+  })
+});
+
+function setSprintTimer(id,val) {
+  // console.log("setsprintTimer() fired")
   let newLength = Number(val.value);
-  if (workTimer.length > newLength) {
+  if (masterTimer[id].length > newLength) {
     
-    workTimer.seconds = workTimer.seconds - (workTimer.length - newLength) * 60
+    masterTimer[id].seconds = masterTimer[id].seconds - (masterTimer[id].length - newLength) * 60
   } else {
-    workTimer.seconds = workTimer.seconds + ( newLength - workTimer.length) * 60 
+    masterTimer[id].seconds = masterTimer[id].seconds + ( newLength - masterTimer[id].length) * 60 
   }
-  workTimer.length = newLength;
-  if (!workTimer.start) {
+  masterTimer[id].length = newLength;
+  if (truths[id]) {
 
-    workTimer.printTime();
+    masterTimer[id].printTime();
   }
 }
 
-let hello = document.querySelector(".settings")
+let settings = document.querySelector(".settings")
 let settingsPage = document.querySelector('.modal')
 let start = document.querySelector(".timer.start")
 let pause = document.querySelector(".timer.pause")
@@ -37,7 +102,7 @@ close.addEventListener("click",function(){
   closeModal.style.display = "none"
 })
 
-hello.addEventListener("click",function(){
+settings.addEventListener("click",function(){
   let on = settingsPage.style.display
   if (on === "block") {
     settingsPage.style.display = "none"
@@ -50,17 +115,42 @@ hello.addEventListener("click",function(){
 })
 
 start.addEventListener("click", function() {
+  
+  Object.keys(truths).forEach((key) => {
 
-  workTimer.startTimer()
+    if (truths[key]) {
+
+      if (!masterTimer[key].start) {
+        masterTimer[key].startTimer()
+      }
+    }
+  })
+  
+  
+    
 })
 
 pause.addEventListener("click",function(){
-  workTimer.pause()
+    
+  Object.keys(truths).forEach((key) => {
+
+    if (truths[key]) {
+
+        masterTimer[key].pause()
+    }
+  })
+  
 })
 
 reset.addEventListener("click",function(){
 
-  workTimer.resetTimer()
+  Object.keys(truths).forEach((key) => {
+
+    if (truths[key]) {
+
+        masterTimer[key].resetTimer()
+    }
+  })
 
 })
 // document.addEventListener("")

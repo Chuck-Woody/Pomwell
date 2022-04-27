@@ -20,19 +20,20 @@
 
     <div class="modal">
 
-      <div class="timer-length"> Sprint Length
-        <input type="number" id="timer-length">
-      </div>
-      <div class="break-length">Cooldown Length
-        <input type="number" id="break-length">
-      </div>
-      <div class="break-length">Rest Length
-        <input type="number" id="rest-length">
-      </div>
-      <div class="close">&times;</div>
-    </div>
 
-    <nav class="nav-bar-container">
+        <div class="timer-length"> Sprint Length
+          <input type="number" id="sprint" value="25">
+        </div>
+        <div class="break-length">Cooldown Length
+          <input type="number" id="cooldown" value="5">
+        </div>
+        <div class="rest-length">Rest Length
+          <input type="number" id="rest" value="15">
+        </div>
+        <div class="close">&times;</div>
+    </div>
+      
+      <nav class="nav-bar-container">
       <div class="title nav-title">Pomwell</div>
       <button id="settings" class="btn nav-settings settings">
         <i class="fa-solid fa-gear"></i>
@@ -43,11 +44,14 @@
 
     <div class="timer-container">
       <div class="default timer-card">
-        <div class="default tab sprint">Sprint</div>
-        <div class="default tab cooldown">Cooldown</div>
-        <div class="default tab rest">Rest</div>
+        <div class="tab-container">
+          <div class="default tab sprint">Sprint</div>
+          <div class="default tab cooldown">Cooldown</div>
+          <div class="default tab rest">Rest</div>
 
-        <div class="timer-value">25:00</div>
+        </div>
+
+        <div class="timer-value"></div>
         <button class="default btn timer start">Start</button>
         <button class="default btn timer pause">Pause</button>
         <button class="default btn timer reset">Reset</button>
