@@ -43,6 +43,7 @@ hello.addEventListener("click",function(){
     settingsPage.style.display = "none"
   } else {
     settingsPage.style.display = "flex"
+    // settingsPage.style.position ="fixed";
     settingsPage.style.gridTemplateColumns = 1
     
   }

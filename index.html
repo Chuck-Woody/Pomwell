@@ -18,39 +18,45 @@
   </head>
   <body>
 
-  <div class="modal">
+    <div class="modal">
 
-    <div class="timer-length"> Timer Length
-      <input type="number" id="timer-length">
+      <div class="timer-length"> Sprint Length
+        <input type="number" id="timer-length">
+      </div>
+      <div class="break-length">Cooldown Length
+        <input type="number" id="break-length">
+      </div>
+      <div class="break-length">Rest Length
+        <input type="number" id="rest-length">
+      </div>
+      <div class="close">&times;</div>
     </div>
-    <div class="break-length">Break Length
-      <input type="number" id="break-length">
-    <div class="close">&times;</div>
-  </div>
 
-  </div>
+    <nav class="nav-bar-container">
+      <div class="title nav-title">Pomwell</div>
+      <button id="settings" class="btn nav-settings settings">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <button class="btn nav-themes themes">Themes</button>
+      <div class="nav-underline"></div>
+    </nav>
 
-  <nav class="nav-bar-container">
-    <div class="title nav-title">Pomwell</div>
-    <button id="settings" class="btn nav-settings settings">
-      <i class="fa-solid fa-gear"></i>
-    </button>
-    <button class="btn nav-themes themes">Themes</button>
-    <div class="nav-underline"></div>
-  </nav>
+    <div class="timer-container">
+      <div class="default timer-card">
+        <div class="default tab sprint">Sprint</div>
+        <div class="default tab cooldown">Cooldown</div>
+        <div class="default tab rest">Rest</div>
 
-  <div class="timer-container">
-    <div class="timer-card">
-      <div class="timer-value">25:00</div>
-      <button class="btn timer start">Start</button>
-      <button class="btn timer pause">Pause</button>
-      <button class="btn timer reset">Reset</button>
+        <div class="timer-value">25:00</div>
+        <button class="default btn timer start">Start</button>
+        <button class="default btn timer pause">Pause</button>
+        <button class="default btn timer reset">Reset</button>
+      </div>
     </div>
-  </div>
 
-  <div class="task-container">
-    <div class="task-value"></div>
-  </div>
+    <div class="task-container">
+      <div class="task-value"></div>
+    </div>
   </body>
 </html>
 

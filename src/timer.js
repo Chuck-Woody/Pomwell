@@ -64,8 +64,8 @@ class Timer {
     }
 
     resetTimer(){
-      this.seconds = (this.length) * 60;
-      this.printTime()
+      this.seconds = (this.length) * 60 + 1;
+      
     }
 }
 

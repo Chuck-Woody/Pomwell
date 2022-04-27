@@ -1,6 +1,12 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+:root {
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --body-width: 620px;
+}
+
 .btn {
   font-family: Changa;
   background-color: white;
@@ -16,14 +22,17 @@
 }
 
 body {
+  position: relative;
+  left: 30%;
   background: #8399a4;
+  max-width: var(--body-width);
 }
 
 .nav-bar-container {
   position: relative;
   display: grid;
   grid-template-areas: " . logo logo . button1 . " " . logo logo . button2 . ";
-  padding: 0px;
+  padding: 10px;
 }
 
 .nav-settings {
@@ -46,17 +55,69 @@ body {
   position: absolute;
   top: 100%;
   width: 70%;
-  right: 13%;
+  right: 11%;
   margin: auto;
+}
+
+.timer-container {
+  margin-top: 1vh;
+}
+
+.timer-card {
+  background: hsl(200deg, 15%, 70%);
+  box-shadow: var(--dark-shadow);
+  display: grid;
+  grid-template-areas: " . tab1 tab2 tab3 . " "timer timer timer timer timer" "timer timer timer timer timer" " . start pause reset . ";
+}
+
+.tab {
+  justify-self: center;
+  align-self: center;
+}
+
+.timer-value {
+  justify-self: center;
+  align-self: center;
+  font-family: "Bungee Shade", cursive;
+  font-size: 90px;
+  color: white;
+}
+
+.tab.sprint {
+  grid-area: tab1;
+}
+
+.tab.cooldown {
+  grid-area: tab2;
+}
+
+.tab.rest {
+  grid-area: tab3;
+}
+
+.timer-value {
+  grid-area: timer;
+}
+
+.timer.start {
+  grid-area: start;
+}
+
+.timer.pause {
+  grid-area: pause;
+}
+
+.timer.reset {
+  grid-area: reset;
 }
 
 .modal {
   display: none;
   position: fixed;
   z-index: 1;
-  width: 100%;
+  max-width: var(--body-width);
   height: 100%;
-  overflow: auto;
+  overflow: none;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
