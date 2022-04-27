@@ -66,6 +66,8 @@ tabs.forEach(function(tab){
   })
 })
 
+
+
 const timerLengths = document.querySelectorAll("input")
 timerLengths.forEach(function(timerLength) {
   timerLength.addEventListener("blur",function(timerLength){
@@ -153,6 +155,41 @@ reset.addEventListener("click",function(){
   })
 
 })
+
+
+//Progress bar function that takes in the percentage doneness
+// const canvas = document.getElementById('progress-bar')
+
+
+let progressBar = function (canvas) {
+  
+  return {
+      ctx: document.getElementById(canvas).getContext('2d'),
+      display: function (p,color) {
+      //   console.log(color)
+      // this.ctx.fillStyle = "orange";
+      // this.ctx.fillRect(0,0,this.ctx.canvas.width, this.ctx.canvas.height);
+      this.ctx.fillStyle = "ffffff";
+      this.ctx.fillRect(0,0,100, this.ctx.canvas.heigt);
+      console.log(100);
+      console.log(this.ctx.canvas.height);
+    }
+  };
+};
+
+progressBar("progress-bar").display(20,'#ffffff');
+
+
+
+
+
+
+// console.log(ctx);
+// ctx.fillStyle = 'blue';
+// ctx.fillRect(10,10,620,1000);
+
+
+
 // document.addEventListener("")
 
 
