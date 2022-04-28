@@ -11,7 +11,7 @@ class Timer {
         this.start = false;
         this.htmlElement = htmlElement; //id of the where you want the timer to print
         // this.printTime()
-      
+        this.percentTime = 0 ;
     }
     
     startTimer() {
@@ -31,6 +31,9 @@ class Timer {
         // console.clear();
         // console.log("inside printTime");
         let timeDisplay = document.querySelector(`.${this.htmlElement}`)
+        let progressBar = document.querySelector(`.progress-bar`)
+        progressBar.style.width = `${this.percentTime * 100}%`;
+        console.log(progressBar.style.width)
         // console.log(
         //   `${this.minutesShow.toString().padStart(2, '0')}:` +
         //   `${(this.secondsShow).toString().padStart(2, '0')}`);
@@ -40,6 +43,7 @@ class Timer {
        
         if (timeDisplay !== null) {
           timeDisplay.innerHTML =`${this.minutesShow.toString().padStart(2, '0')}:` + `${(this.secondsShow).toString().padStart(2, '0')}`;
+          progressBar.style.width = `%${this.percentTime}`;
         }
         
         // console.log(`the seconds remaining are ${this.seconds}`);
@@ -50,14 +54,15 @@ class Timer {
       if (this.seconds === 0) { 
         this.pause();
         this.resetTimer();
-
+        
+        
       } else {
         this.seconds -= 1;
         this.time_remaining = this.seconds;
-
+        this.percentTime = (this.length * 60 - this.seconds ) / (this.length * 60);
       }
       // console.log("calling printTime()")
-      return this.printTime();
+      return [this.printTime(),this.percentTime];
       // 1. Decrement the time by one second.
       // 2. Store the number of ticks passed
       // 3. Call printTime.
@@ -65,6 +70,7 @@ class Timer {
 
     resetTimer(){
       this.pause();
+      this.percentTime = 0;
       this.seconds = (this.length) * 60 ;
       // this.printTime();
     }

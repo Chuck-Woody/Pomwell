@@ -5,7 +5,7 @@ import Timer from "./timer.js"
 
 //Set the display timer to the 25 minute sprint timer
 
-let sprintTimer = new Timer(26,'timer-value');
+let sprintTimer = new Timer(.1,'timer-value');
 sprintTimer.printTime();
 
 //create the cooldown timer and the rest timer
@@ -32,28 +32,28 @@ let tabs = document.querySelectorAll(".tab")
 
 tabs.forEach(function(tab){
   tab.addEventListener("click",function(e) {
-
+    
     if (e.currentTarget.classList.contains("sprint")) {
       console.log(`the [ ${e.currentTarget.classList} ] was clicked`)
       truths['sprint'] = true;
       truths['cooldown'] = false;
       truths['rest'] = false
       console.log(truths)
-    }
+    } 
     if (e.currentTarget.classList.contains("cooldown")) {
       console.log(`the [ ${e.currentTarget.classList} ] was clicked`)
       truths['sprint'] = false;
       truths['cooldown'] = true;
       truths['rest'] = false;
       console.log(truths)
-    }
+    } 
     if (e.currentTarget.classList.contains("rest")) {
       console.log(`the [ ${e.currentTarget.classList} ] was clicked`)
       truths['sprint'] = false;
       truths['cooldown'] = false;
       truths['rest'] = true;
       console.log(truths)
-    }
+    } 
     for (const timer in masterTimer) {
       console.log(masterTimer[timer])
       if (truths[timer]) {
@@ -63,6 +63,7 @@ tabs.forEach(function(tab){
         masterTimer[timer].resetTimer()
       }
     }
+    
   })
 })
 
@@ -71,13 +72,13 @@ tabs.forEach(function(tab){
 const timerLengths = document.querySelectorAll("input")
 timerLengths.forEach(function(timerLength) {
   timerLength.addEventListener("blur",function(timerLength){
-    setSprintTimer(this.id,this)
+    setTimer(this.id,this)
       
   })
 });
 
-function setSprintTimer(id,val) {
-  // console.log("setsprintTimer() fired")
+function setTimer(id,val) {
+  // console.log("setTimer() fired")
   let newLength = Number(val.value);
   if (masterTimer[id].length > newLength) {
     
@@ -124,10 +125,17 @@ start.addEventListener("click", function() {
 
       if (!masterTimer[key].start) {
         masterTimer[key].startTimer()
+        
+        // while (masterTimer[key].start) {
+        //   console.log("youre in an infinte loop sucker");
+          // document.querySelector('.progress-bar').style.width = '1%';
+        
+        // }
       }
     }
   })
-  
+
+
   
     
 })
@@ -151,33 +159,34 @@ reset.addEventListener("click",function(){
     if (truths[key]) {
 
         masterTimer[key].resetTimer()
+        masterTimer[key].printTime();
     }
   })
 
 })
 
 
+
+
 //Progress bar function that takes in the percentage doneness
 // const canvas = document.getElementById('progress-bar')
-
-
-let progressBar = function (canvas) {
+// let progressBar = function (canvas) {
   
-  return {
-      ctx: document.getElementById(canvas).getContext('2d'),
-      display: function (p,color) {
-      //   console.log(color)
-      // this.ctx.fillStyle = "orange";
-      // this.ctx.fillRect(0,0,this.ctx.canvas.width, this.ctx.canvas.height);
-      this.ctx.fillStyle = "ffffff";
-      this.ctx.fillRect(0,0,100, this.ctx.canvas.heigt);
-      console.log(100);
-      console.log(this.ctx.canvas.height);
-    }
-  };
-};
+//   return {
+//       ctx: document.getElementById(canvas).getContext('2d'),
+//       display: function (p,color) {
+//         console.log(color)
+//       this.ctx.fillStyle = "orange";
+//       this.ctx.fillRect(0,0,this.ctx.canvas.width, this.ctx.canvas.height);
+//       this.ctx.fillStyle = color;
+//       this.ctx.fillRect(0,0,p * this.ctx.canvas.width / 100, this.ctx.canvas.heigt);
+//       console.log(100);
+//       console.log(this.ctx.canvas.height);
+//     }
+//   };
+// };
 
-progressBar("progress-bar").display(20,'#ffffff');
+// progressBar("progress-bar").display(20,'#ffffff');
 
 
 
@@ -234,3 +243,4 @@ progressBar("progress-bar").display(20,'#ffffff');
 // };
 
 // render();
+
