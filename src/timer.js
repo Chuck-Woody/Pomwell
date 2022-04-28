@@ -3,7 +3,7 @@ class Timer {
     // 1. Take in the length of the timer in minutes and where you want the timer to display
     // 2. Save the seconds as the length * 60
     // 3. Split out the minutes and seconds for timer display
-      this.audio = new Audio('/resources/household_clock_tick_old_mechanical_002_71576.mp3');
+      this.audio = new Audio('./resources/household_clock_tick_old_mechanical_002_71576.mp3');
     this.length = length //for the reset of the timer
         this.seconds = length * 60;
         this.minutesShow = Math.floor(this.seconds / 60);
