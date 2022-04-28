@@ -1,10 +1,10 @@
-
 class Timer {
-    constructor(length,htmlElement) {
-        // 1. Take in the length of the timer in minutes and where you want the timer to display
-        // 2. Save the seconds as the length * 60
-        // 3. Split out the minutes and seconds for timer display
-        this.length = length //for the reset of the timer
+  constructor(length,htmlElement) {
+    // 1. Take in the length of the timer in minutes and where you want the timer to display
+    // 2. Save the seconds as the length * 60
+    // 3. Split out the minutes and seconds for timer display
+      this.audio = new Audio('../resources/household_clock_tick_old_mechanical_002_71576.mp3');
+    this.length = length //for the reset of the timer
         this.seconds = length * 60;
         this.minutesShow = Math.floor(this.seconds / 60);
         this.secondsShow = this.seconds % 60
@@ -17,9 +17,12 @@ class Timer {
     startTimer() {
       this.timerId = setInterval(this._tick.bind(this), 1000);
       this.start = true;
+      this.audio.loop = true
+      this.audio.play()
     }
 
     pause() {
+      this.audio.pause()
       clearInterval(this.timerId);
       this.timerId = null;
       this.start = false;

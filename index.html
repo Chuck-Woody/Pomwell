@@ -6,7 +6,7 @@
     <title>PomWell</title>
     <link rel="stylesheet" href="./dist/main.css">
     <!-- <script src="./dist/main.js"></script> -->
-    <script src="./src/index.js" type="module"></script>
+    <script src="./dist/main.js" type="module"></script>
     <script src="https://kit.fontawesome.com/eef97a435a.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,9 @@
         </div>
         <div class="rest-length">Rest Length
           <input type="number" id="rest" value="15">
+        </div>
+        <div class="mute-sounds">Mute Timer
+          <input type="checkbox" name="checkbox">
         </div>
         <div class="close">&times;</div>
     </div>
@@ -58,21 +61,24 @@
       </div>
     </div>
 
-    
-    <div class="task-container">
-      <div class="task-value"></div>
-    </div>
     <div class="progress-bar-container">
       <span class="progress-bar-text">
         
       </span>
       <div class="progress-bar"></div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <div class="taskContainer" style="display: grid; grid-template-areas: '. a a . b .';">
+      <div class="objective" style="grid-area: a; justify-self: center; font-family: Changa; color: white; font-size:x-large ;">Objectives</div>
+    </div>
+    <div class="task-underline" ></div> -->
 
-    <h2> Objectives </h2>
-    <div class="nav-underline"></div>
-
-
+    <canvas class="timer-canvas">
+      
+    </canvas>
   </body>
 </html>
 

@@ -57,6 +57,7 @@
 //Body
 
 body {
+  // display: flex;
   position: relative;
   left: 30%;
   background: #8399a4;
@@ -99,6 +100,16 @@ body {
   margin: auto;
 }
 
+.task-underline {
+
+  height: 0.025vh;
+  background: white;
+  position: absolute;
+  top: 100%;
+  width: 70%;
+  right: 11%;
+  margin: auto;
+}
 //timer container
 
 .timer-container {
@@ -181,6 +192,26 @@ body {
   height: 100%;
   background-color: white;
   
+}
+// .task-header-container {
+//   position: relative;
+//   display: grid;
+//   grid-template-areas: 
+//   " . headerText headerText . addTask . ";
+//   padding: 10px;
+// }
+
+
+.taskContainer {
+  
+  display: grid !important;
+  grid-template-areas: ". a a . b .";
+}
+
+
+body > div.taskContainer > div {
+  grid-area: a;
+  color: green;
 }
 
 // @keyframes progress-bar-animation {
