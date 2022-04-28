@@ -13,6 +13,12 @@ List of Technologies:
 
 Technical implementation details:
 
+To-dos:
+  implement the task card feature
+  implement a soundtrack feature with spotify API
+  implement themes/ 3d Timer
+  
+
 
 
 
