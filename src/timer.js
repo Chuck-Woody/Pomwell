@@ -36,7 +36,7 @@ class Timer {
         let timeDisplay = document.querySelector(`.${this.htmlElement}`)
         let progressBar = document.querySelector(`.progress-bar`)
         progressBar.style.width = `${this.percentTime * 100}%`;
-        console.log(progressBar.style.width)
+        // console.log(progressBar.style.width)
         // console.log(
         //   `${this.minutesShow.toString().padStart(2, '0')}:` +
         //   `${(this.secondsShow).toString().padStart(2, '0')}`);

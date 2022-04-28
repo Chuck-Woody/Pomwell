@@ -38,7 +38,7 @@ let tabs = document.querySelectorAll(".tab")
 
 tabs.forEach(function (tab) {
   tab.addEventListener("click", function (e) {
-    console.log(tabs)
+    // console.log(tabs)
     if (e.currentTarget.classList.contains("sprint")) {
       // console.log(`the [ ${e.currentTarget.classList} ] was clicked`)
       truths['sprint'] = true;
