@@ -1,3 +1,22 @@
+Link to live version: https://chuck-woody.github.io/Pomwell/
+
+Instructions:
+  To use this timer click start.
+  If the lengths of any of the timers is not to your liking set different intervals in minutes by using the settings button
+
+List of Technologies:
+
+  webpack
+  javascript
+  css
+  html
+
+Technical implementation details:
+
+
+
+
+
 In Pomwell users will be welcomed to a single page web application where they will be able to
 use a pomodoro timer to maintain a higher productivity for longer periods of time while protecting
 the users mental health. During the breaks breathing exercises, posture corrections tips, and
